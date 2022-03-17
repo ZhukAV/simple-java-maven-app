@@ -6,7 +6,7 @@ package com.mycompany.app;
 public class App
 {
     String paramValue = System.getProperty("PARAM_NAME_TEST");
-    private final String message = "Hello World!" + paramValue;
+    private final String message = "Hello World, " + paramValue + "!";
 
     public App() {}
 
