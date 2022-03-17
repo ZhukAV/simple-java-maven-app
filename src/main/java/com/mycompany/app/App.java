@@ -5,8 +5,8 @@ package com.mycompany.app;
  */
 public class App
 {
-
-    private final String message = "Hello World!";
+    String paramValue = System.getProperty("PARAM_NAME_TEST");
+    private final String message = "Hello World!" + paramValue;
 
     public App() {}
 
