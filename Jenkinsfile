@@ -8,7 +8,8 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                sh 'mvn -B -DskipTests clean package' 
+				sh 'mvn clean test -DPARAM_NAME_TEST=${PARAM_NAME_TEST}'
+				sh 'mvn -B -DskipTests clean package' 
             }
         }
     }
