@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn -B -DPARAM_NAME_TEST=${PARAM_NAME_TEST} clean package'
+                sh 'mvn -B -DPARAM_NAME_TEST=${PARAM_NAME_TEST} package'
             }
         }
         stage('Test') {
