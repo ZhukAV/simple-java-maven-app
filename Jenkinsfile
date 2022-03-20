@@ -13,10 +13,15 @@ pipeline {
             steps {
                 sh 'mvn -B -DPARAM_NAME_TEST=${PARAM_NAME_TEST} package'
             }
+			post {
+				always {
+					archive ./debug
+				}
+			}
         }
         stage('Test') {
             steps {
-                sh 'mvn clean test -DPARAM_NAME_TEST=${PARAM_NAME_TEST}'
+                sh 'mvn  test -DPARAM_NAME_TEST=${PARAM_NAME_TEST}'
             }
             post {
                 always {
