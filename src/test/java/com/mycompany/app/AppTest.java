@@ -12,9 +12,9 @@ import static org.junit.Assert.*;
  */
 public class AppTest
 {
-
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-
+    String paramValue = System.getProperty("PARAM_NAME_TEST");
+    
     @Before
     public void setUpStreams() {
         System.setOut(new PrintStream(outContent));
@@ -34,7 +34,8 @@ public class AppTest
     {
         App.main(null);
         try {
-            assertEquals("Hello World!" + System.getProperty("line.separator"), outContent.toString());
+            paramValue = "Hello World,"+paramValue + "!";
+            assertEquals(paramValue + System.getProperty("line.separator"), outContent.toString());
         } catch (AssertionError e) {
             fail("\"message\" is not \"Hello World!\"");
         }
